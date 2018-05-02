@@ -1,3 +1,16 @@
+# DEPRECATED
+
+This repository is now deprecated, all efforts are focussed on Choria - a next generation Orchestrator with a MCollective compatability layer.
+
+Please review [choria.io](https://choria.io) and it too has a [Vagrant Demo](https://github.com/choria-io/vagrant-demo)
+
+
+
+
+
+
+
+
 What?
 =====
 
