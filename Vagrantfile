@@ -34,7 +34,8 @@ Vagrant.configure("2") do |config|
         vb.customize ["modifyvm", :id, "--memory", MEMORY]
     end
     vmconfig.vm.box = "centos_6_3_x86_64"
-    vmconfig.vm.box_url = "./CentOS-6.3-x86_64-v20130101.box"
+    #vmconfig.vm.box_url = "./CentOS-6.3-x86_64-v20130101.box"
+    vmconfig.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.3-x86_64-v20130101.box"
     vmconfig.vm.provision :shell, :inline => $set_puppet_version
     vmconfig.vm.provision :puppet, :options => ["--pluginsync --hiera_config /vagrant/deploy/hiera.yaml"], :module_path => "deploy/modules", :facter => { "middleware_ip" => "#{SUBNET}.70" } do |puppet|
       puppet.manifests_path = "deploy"
@@ -51,8 +52,8 @@ Vagrant.configure("2") do |config|
       end
       vmconfig.vm.hostname = "node%d.#{DOMAIN}" % i
       vmconfig.vm.box = "centos_6_3_x86_64"
-      vmconfig.vm.box_url = "./CentOS-6.3-x86_64-v20130101.box"
-
+      #vmconfig.vm.box_url = "./CentOS-6.3-x86_64-v20130101.box"
+      vmconfig.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.3-x86_64-v20130101.box"
       vmconfig.vm.provision :puppet, :options => ["--pluginsync --hiera_config /vagrant/deploy/hiera.yaml"], :module_path => "deploy/modules", :facter => { "middleware_ip" => "#{SUBNET}.70" } do |puppet|
         puppet.manifests_path = "deploy"
         puppet.manifest_file = "site.pp"
